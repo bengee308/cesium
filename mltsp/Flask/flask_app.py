@@ -24,6 +24,7 @@ from flask import (
 from werkzeug import secure_filename
 import uuid
 import numpy as np
+import jwt
 
 import yaml
 if config['testing']['disable_auth']:
@@ -169,6 +170,13 @@ def excepthook_replacement(exctype, value, tb):
     print("Value:", value)
     print("Traceback:", tb, "\n\n")
     logging.exception("Error occurred in flask_app.py")
+
+
+@app.route('/socket_auth_token', methods=['GET'])
+@stormpath.login_required
+def socket_auth_token():
+    return jwt.encode({'username': stormpath.user.email},
+                      app.config['SECRET_KEY'])
 
 
 @app.route('/check_job_status/', methods=['POST', 'GET'])
