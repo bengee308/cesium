@@ -89,4 +89,8 @@ before_install:
 install:
   - .drone/travis_install.sh
 
-script: .drone/travis_test.sh
+script:
+  - .drone/travis_script.sh
+
+after_success:
+  - travis-sphinx deploy
