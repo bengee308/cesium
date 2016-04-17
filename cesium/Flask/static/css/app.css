@@ -1,0 +1,88 @@
+.centered {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+.progress-bar-component{
+    text-align: center;
+    padding: 15px;
+    color: white;
+    /*z-index: -2;*/
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+}
+.progress-bar-component.active{
+    background-color: #008cba;
+}
+.progress-bar-component.light-gray{
+    background-color: #cec8c8;
+}
+.progress-bar-component.dark-gray{
+    background-color: #b7aaaa;
+}
+
+.arrow-right {
+	width: 0;
+	height: 0;
+	border-top: 27px solid transparent;
+	border-bottom: 27px solid transparent;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 2;
+}
+.arrow-right.blue{
+    border-left: 27px solid #008cba;
+}
+.arrow-right.light-gray{
+    border-left: 27px solid #cec8c8;
+}
+.arrow-right.dark-gray{
+    border-left: 27px solid #b7aaaa;
+}
+.tri-down {
+
+    /* Styling block element, not required */
+    position: relative;
+    margin-bottom: 2em;
+    padding: 1em;
+    border-bottom: 1px solid #999;
+    background: #f3f3f3;
+}
+
+/* Required for Down Triangle */
+.tri-down:before, .tri-down:after {
+content: "";
+position: absolute;
+width: 0;
+height: 0;
+border-style: solid;
+border-color: transparent;
+border-right: 0;
+}
+
+/* Stroke */
+.tri-down:before {
+bottom: -16px;
+left: 21px;
+
+/* If 1px darken stroke slightly */
+border-left-color: #777;
+border-width: 16px;
+}
+
+/* Fill */
+.tri-down:after {
+bottom: -15px;
+left: 22px;
+border-top-color: #f3f3f3;
+border-width: 15px;
+}
+.upload-button{
+    padding: 10px !important;
+}
+.tab{
+    display: none;
+}
+.tab.active{
+    display: block;
+}
