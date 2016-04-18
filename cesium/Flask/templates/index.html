@@ -23,7 +23,7 @@
                     </ul> -->
 
                     
-            <nav class="tab-bar" style="position: fixed; width: 100%">
+            <nav class="tab-bar">
                 <ul class="title-area">
                     <a href="http://cesium.ml/blog/.."><img src="http://cesium.ml/blog/theme/img/cesium-blue-dark.png"
                                                             style="height: 45px;
@@ -31,9 +31,9 @@
                 </ul>
             </nav>
             <section class="main-section">
-            <div id="tab-links" style="position: fixed; top: 45px; width: 100%">
-                <div class="small-3 columns progress-bar-component active"><a href="#uploadTab" style="color:white">Data</a></div>
-                    <div class="small-3 columns progress-bar-component light-gray"><a href="#featureTab">Featurize</a>
+            <div id="tab-links">
+                <div class="small-3 columns progress-bar-component active"><a href="#uploadTab" class="tab-title">Data</a></div>
+                    <div class="small-3 columns progress-bar-component light-gray"><a href="#featureTab" class="tab-title">Featurize</a>
                         <div class="arrow-right blue"></div>
                     </div>
                 <div class="small-3 columns progress-bar-component dark-gray" data-tab="#tab2">Build Model
@@ -45,7 +45,7 @@
             </div>
                     <!-- Projects tab -->
                     <!-- New Upload data tab -->
-                <div id="tab-content" style="position: relative; top: 100px; z-index: -2">                     
+                <div id="tab-content" style="position: relative; top: 100px; z-index: 1">                     
                     <div id='uploadTab' class="tab active">
                         <div class="row">
                             <div class="large-12 columns" style="margin-top: 30px">
@@ -71,23 +71,33 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="large-5 columns">
-                                                <label id='ts_data_headerfile_format_dialog_link'>Header File
+                                            <div class="large-4 columns">
+                                                <label for="headerfile" id='ts_data_headerfile_format_dialog_link'>Header File
                                                     <br>
-                                                    <a href="#" class="button primary upload-button" id="header_file_upload"><i
-                                                            class="fa fa-folder-open-o"></i>
-                                                        Choose File</a> &nbsp;&nbsp;&nbsp;No file selected.
+                                                    <a href="#" class="button primary upload-button" id="header_file_upload">
+                                                    <i class="fa fa-folder-open-o"></i>
+                                                        Choose File</a> <span id="headerfile_selected">&nbsp;&nbsp;&nbsp;No file selected.</span>
                                                 </label>
+                                                <input type="file" name="headerfile" id="headerfile" data-selected="#headerfile_selected"/>
                                             </div>
                                             <div class="large-4 columns">
-                                                <label id='ts_data_tarball_format_dialog_link'>Tarball containing data
+                                                <label for="zipfile" id='ts_data_tarball_format_dialog_link'>Tarball containing data
                                                     <br>
-                                                    <a href="#" class="button primary upload-button" id="tarball_file_upload"><i
-                                                            class="fa fa-folder-open-o"></i>
-                                                        Choose File</a> &nbsp;&nbsp;&nbsp;No file selected.
+                                                    <a href="#" class="button primary upload-button" id="tarball_file_upload"><i class="fa fa-folder-open-o"></i>
+                                                        Choose File</a> <span id="tarball_selected">&nbsp;&nbsp;&nbsp;No file selected.</span>
+                                                </label>
+                                                <input type='file' name='zipfile' id='zipfile' class="stylized_input" data-selected="#tarball_selected">
+                                            </div>
+                                            <div class="large-2 columns">
+                                                <label>Delimeter 
+                                                    <select id="sep" name="sep">
+                                                        <option value=",">Comma</option>
+                                                        <option value="\t">Tab</option>
+                                                        <option value=" ">Space</option>
+                                                    </select>
                                                 </label>
                                             </div>
-                                            <div class="large-3 columns">
+                                            <div class="large-2 columns">
                                                 <label>Upload Data
                                                     <br>
                                                     <a href="#" class="button primary upload-button" id='upload_button' name='upload_button' onclick="uploadFormSubmit();">
@@ -163,16 +173,17 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        <div class="large-12 columns">
-                                            <label>Select dataset
-                                                <select id="upload_project_name_select" name="upload_project_name_select">
-                                                        {% for PROJ_NAME in CURRENT_PROJECTS %}
-                                                            <option value="{{ PROJ_NAME }} ">{{ PROJ_NAME }}</option>
-                                                        {% endfor %}
-                                                </select>
-                                            </label>
+                                        <div class="row">
+                                            <div class="large-12 columns">
+                                                <label>Select dataset
+                                                    <select id="upload_project_name_select" name="upload_project_name_select">
+                                                            {% for PROJ_NAME in CURRENT_PROJECTS %}
+                                                                <option value="{{ PROJ_NAME }} ">{{ PROJ_NAME }}</option>
+                                                            {% endfor %}
+                                                    </select>
+                                                </label>
+                                            </div>
                                         </div>
-                                        
                                         <div class="row">
                                             <div class="large-12 columns">
                                                 <label>Feature Set Title

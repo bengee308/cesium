@@ -80,9 +80,40 @@ border-width: 15px;
 .upload-button{
     padding: 10px !important;
 }
+/* Tabs */
 .tab{
     display: none;
 }
 .tab.active{
     display: block;
+}
+#tab-links{
+    position: fixed;
+    top: 45px;
+    width: 100%;
+    z-index: 2;
+}
+.tab-bar{
+    position: fixed !important;
+    width: 100%;
+    z-index: 2!important;
+}
+.tab-title{
+    color: white;
+}
+.tab-tilte:visited{
+    color: white;
+}
+.tab-title:hover{
+    color: white;
+    opacity: 0.8;
+}
+.tab-title:active{
+    color: white;
+}
+/*#ts_data_headerfile_format_dialog_link input[type="file"]{
+}*/
+input[type=file]{
+    position: fixed;
+    top: -100px;
 }
