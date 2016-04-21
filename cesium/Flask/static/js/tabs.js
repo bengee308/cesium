@@ -1,15 +1,23 @@
 $(document).ready(function() {
+    Foundation.global.namespace = '';
     $(document).foundation();
     $('#tab-links a').on('click', function(e)  {
-        var currentAttrValue = $(this).attr('href');
- 
-        // Show/Hide Tabs
-        $('#tab-content ' + currentAttrValue).show().siblings().hide();
- 
-        // Change/remove current tab to active
-        $(this).parent('li').addClass('active').siblings().removeClass('active');
- 
         e.preventDefault();
+        var currentAttrValue = $(this).attr('href');
+        // console.log(currentAttrValue);
+        // Show/Hide Tabs
+        var allTabs = ['#uploadTab','#featureTab','#buildModelTab']
+        for (var i = 0; i < allTabs.length; i++){
+            if (allTabs[i] === currentAttrValue){
+                console.log("reached")
+                $(allTabs[i]).show();
+            }
+            else{
+                $(allTabs[i]).hide();   
+            }
+        }
+        // Change/remove current tab to active
+        // $(this).parent('li').addClass('active').siblings().removeClass('active');
     });
     $("label[for='headerfile'], label[for='zipfile']").click(function(e){
     	e.preventDefault();
