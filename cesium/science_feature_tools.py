@@ -25,7 +25,7 @@ FEATURES_LIST = [
     'freq1_rel_phase3',
     'freq1_rel_phase4',
     'freq1_lambda',
-    'freq2_amplitude1',
+    'askldfjaklsdfjlaksdjfjsdfl',
     'freq2_amplitude2',
     'freq2_amplitude3',
     'freq2_amplitude4',

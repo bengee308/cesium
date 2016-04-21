@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    $(document).foundation();
     $('#tab-links a').on('click', function(e)  {
         var currentAttrValue = $(this).attr('href');
  
@@ -21,5 +22,17 @@ $(document).ready(function() {
     	var filename = path.replace(/^.*\\/, "");
     	var span = $(this).attr("data-selected");
     	$(span).text('   '+filename);
+    });
+    // $('#myModal').foundation();
+    // $('#feature_modal_open').on('click', function() {
+    //         // var popup = new Foundation.Reveal($('#myModal'));
+    //         // popup.open();
+    //         console.log("hello");
+    //     $('#myModal').reveal();
+    // });
+    // $(document).foundation();
+    $('a.custom-close-reveal-modal').click(function(e){
+        e.preventDefault();
+      $('#myModal').foundation('reveal', 'close');
     });
 });

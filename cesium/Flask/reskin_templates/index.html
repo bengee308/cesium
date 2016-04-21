@@ -1,150 +1,146 @@
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foundation for Sites</title>
-    <!--<link rel="stylesheet" href="css/foundation.css">-->
-    <link rel="stylesheet" href="css/app.css">
-    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/6.0.5/foundation.min.css">-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.1/css/foundation.css">
-    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-</head>
-<body>
-<div class="off-canvas-wrap" data-offcanvas>
-    <div class="inner-wrap">
-        <nav class="tab-bar">
-            <ul class="title-area">
-                <a href="http://cesium.ml/blog/.."><img src="http://cesium.ml/blog/theme/img/cesium-blue-dark.png"
-                                                        style="height: 45px;
-                  padding: 7.5px;" class=""></a>Projects
-            </ul>
-        </nav>
-
-        <section class="main-section">
-            <div class="small-3 columns progress-bar-component active">Data</div>
-            <div class="small-3 columns progress-bar-component light-gray">Featurize
-                <div class="arrow-right blue"></div>
-            </div>
-            <div class="small-3 columns progress-bar-component dark-gray">Build Model
-                <div class="arrow-right light-gray"></div>
-            </div>
-            <div class="small-3 columns progress-bar-component light-gray">Predict
-                <div class="arrow-right dark-gray"></div>
-            </div>
-            <!--</div>-->
-            <!--</div>-->
-            <div class="row">
-                <div class="large-12 columns" style="margin-top: 30px">
-                    <div class="panel">
-                        <h4 class="form-heading">Upload new time series data</h4>
-                        <form>
-                            <div class="row">
-                                <div class="large-12 columns">
-                                    <label>Select Project
-                                        <select>
-                                            <option value="husker">Project 1</option>
-                                            <option value="starbuck">Project 2</option>
-                                            <option value="hotdog">Project 3</option>
-                                            <option value="apollo">Project 4</option>
-                                        </select>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="large-12 columns">
-                                    <label>Dataset Title
-                                        <input type="text" placeholder="Enter a title for your dataset"/>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="large-5 columns">
-                                    <label>Header File
-                                        <br>
-                                        <a href="#" class="button primary upload-button"><i
-                                                class="fa fa-folder-open-o"></i>
-                                            Choose File</a> &nbsp;&nbsp;&nbsp;No file selected.
-                                    </label>
-                                </div>
-                                <div class="large-4 columns">
-                                    <label>Tarball containing data
-                                        <br>
-                                        <a href="#" class="button primary upload-button"><i
-                                                class="fa fa-folder-open-o"></i>
-                                            Choose File</a> &nbsp;&nbsp;&nbsp;No file selected.
-                                    </label>
-                                </div>
-                                <div class="large-3 columns">
-                                    <label>Upload Data
-                                        <br>
-                                        <a href="#" class="button primary upload-button"><i class="fa fa-upload"></i>
-                                            Upload</a>
-                                    </label>
-                                </div>
-                            </div>
-                        </form>
-                        <h4 class="form-heading">Transform existing data set</h4>
-                        <form>
-                            <div class="row">
-                                <div class="large-12 columns">
-                                    <label>Select Project
-                                        <select>
-                                            <option value="husker">Project 1</option>
-                                            <option value="starbuck">Project 2</option>
-                                            <option value="hotdog">Project 3</option>
-                                            <option value="apollo">Project 4</option>
-                                        </select>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="large-12 columns">
-                                    <label>Select Dataset
-                                        <select>
-                                            <option value="husker">Dataset 1</option>
-                                            <option value="starbuck">Project 2</option>
-                                            <option value="hotdog">Project 3</option>
-                                            <option value="apollo">Project 4</option>
-                                        </select>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="large-12 columns">
-                                    <label>Select Transformation
-                                        <select>
-                                            <option value="husker">Train/Test Split</option>
-                                            <option value="starbuck">Project 2</option>
-                                            <option value="hotdog">Project 3</option>
-                                            <option value="apollo">Project 4</option>
-                                        </select>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="large-12 columns">
-                                    <a href="#" class="button primary upload-button">
-                                        Transform Features</a>
-                                </div>
-                            </div>
-                        </form>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Foundation for Sites</title>
+        <!--<link rel="stylesheet" href="css/foundation.css">-->
+        <link rel="stylesheet" href="css/app.css">
+        <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/6.0.5/foundation.min.css">-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.1/css/foundation.css">
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <div class="off-canvas-wrap" data-offcanvas>
+            <div class="inner-wrap">
+                <nav class="tab-bar">
+                    <ul class="title-area">
+                        <a href="http://cesium.ml/blog/.."><img src="http://cesium.ml/blog/theme/img/cesium-blue-dark.png"
+                            style="height: 45px;
+                        padding: 7.5px;" class=""></a>Projects
+                    </ul>
+                </nav>
+                <section class="main-section">
+                    <div class="small-3 columns progress-bar-component active">Data</div>
+                    <div class="small-3 columns progress-bar-component light-gray">Featurize
+                        <div class="arrow-right blue"></div>
                     </div>
-                </div>
+                    <div class="small-3 columns progress-bar-component dark-gray">Build Model
+                        <div class="arrow-right light-gray"></div>
+                    </div>
+                    <div class="small-3 columns progress-bar-component light-gray">Predict
+                        <div class="arrow-right dark-gray"></div>
+                    </div>
+                    <!--</div>-->
+                    <!--</div>-->
+                    <div class="row">
+                        <div class="large-12 columns" style="margin-top: 30px">
+                            <div class="panel">
+                                <h4 class="form-heading">Upload new time series data</h4>
+                                <form>
+                                    <div class="row">
+                                        <div class="large-12 columns">
+                                            <label>Select Project
+                                                <select>
+                                                    <option value="husker">Project 1</option>
+                                                    <option value="starbuck">Project 2</option>
+                                                    <option value="hotdog">Project 3</option>
+                                                    <option value="apollo">Project 4</option>
+                                                </select>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="large-12 columns">
+                                            <label>Dataset Title
+                                                <input type="text" placeholder="Enter a title for your dataset"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="large-5 columns">
+                                            <label>Header File
+                                                <br>
+                                                <a href="#" class="button primary upload-button"><i
+                                                    class="fa fa-folder-open-o"></i>
+                                                Choose File</a> &nbsp;&nbsp;&nbsp;No file selected.
+                                            </label>
+                                        </div>
+                                        <div class="large-4 columns">
+                                            <label>Tarball containing data
+                                                <br>
+                                                <a href="#" class="button primary upload-button"><i
+                                                    class="fa fa-folder-open-o"></i>
+                                                Choose File</a> &nbsp;&nbsp;&nbsp;No file selected.
+                                            </label>
+                                        </div>
+                                        <div class="large-3 columns">
+                                            <label>Upload Data
+                                                <br>
+                                                <a href="#" class="button primary upload-button"><i class="fa fa-upload"></i>
+                                                Upload</a>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </form>
+                                <h4 class="form-heading">Transform existing data set</h4>
+                                <form>
+                                    <div class="row">
+                                        <div class="large-12 columns">
+                                            <label>Select Project
+                                                <select>
+                                                    <option value="husker">Project 1</option>
+                                                    <option value="starbuck">Project 2</option>
+                                                    <option value="hotdog">Project 3</option>
+                                                    <option value="apollo">Project 4</option>
+                                                </select>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="large-12 columns">
+                                            <label>Select Dataset
+                                                <select>
+                                                    <option value="husker">Dataset 1</option>
+                                                    <option value="starbuck">Project 2</option>
+                                                    <option value="hotdog">Project 3</option>
+                                                    <option value="apollo">Project 4</option>
+                                                </select>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="large-12 columns">
+                                            <label>Select Transformation
+                                                <select>
+                                                    <option value="husker">Train/Test Split</option>
+                                                    <option value="starbuck">Project 2</option>
+                                                    <option value="hotdog">Project 3</option>
+                                                    <option value="apollo">Project 4</option>
+                                                </select>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="large-12 columns">
+                                            <a href="#" class="button primary upload-button">
+                                            Transform Features</a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <a class="exit-off-canvas"></a>
             </div>
-
-        </section>
-
-        <a class="exit-off-canvas"></a>
-
-    </div>
-</div>
-<script src="js/vendor/jquery.js"></script>
-<script src="js/vendor/what-input.js"></script>
-<script src="js/foundation.min.js"></script>
-<script src="js/app.js"></script>
-</body>
+        </div>
+        <script src="js/vendor/jquery.js"></script>
+        <script src="js/vendor/what-input.js"></script>
+        <script src="js/foundation.min.js"></script>
+        <script src="js/app.js"></script>
+    </body>
 </html>

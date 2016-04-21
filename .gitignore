@@ -22,3 +22,5 @@ dist
 MANIFEST
 .ipynb_checkpoints
 *_test_*.yaml
+web_client/log
+web_client/run
