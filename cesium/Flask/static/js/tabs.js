@@ -9,7 +9,26 @@ $(document).ready(function() {
         var allTabs = ['#uploadTab','#featureTab','#buildModelTab']
         for (var i = 0; i < allTabs.length; i++){
             if (allTabs[i] === currentAttrValue){
-                console.log("reached")
+                $(allTabs[i]).show();
+            }
+            else{
+                $(allTabs[i]).hide();   
+            }
+        }
+        // Change/remove current tab to active
+        // $(this).parent('li').addClass('active').siblings().removeClass('active');
+    });
+    
+    $('#feature-tab-links a').on('click', function(e)  {
+        e.preventDefault();
+        var currentAttrValue = $(this).attr('href');
+        
+        // Show/Hide Tabs
+        var allTabs = ['#featureset1tab','#featureset2tab','#uploadcustomtab']
+        for (var i = 0; i < allTabs.length; i++){
+
+            if (allTabs[i] === currentAttrValue){
+                console.log(currentAttrValue);
                 $(allTabs[i]).show();
             }
             else{

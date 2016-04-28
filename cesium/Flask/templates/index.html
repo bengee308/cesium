@@ -188,8 +188,22 @@
                                                 <div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
                                                     <h2 id="modalTitle">Awesome. I have it.</h2>
                                                     <p class="lead">Your couch.  It is mine.</p>
-                                                    <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
                                                     <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+                                                    <div id="feature-tab-links">
+                                                        <div class="row">
+                                                            <div class="large-4 columns"> <a href="#featureset1tab">Featureset1</a></div>
+                                                            <div class="large-4 columns"> <a href="#featureset2tab">Featureset2</a></div>
+                                                            <div class="large-4 columns"> <a href="#uploadcustomtab">CustomFeatures</a></div>
+                                                        </div>
+                                                    </div>
+                                                    <div id="featureset1tab"></div>
+                                                    <div id="featureset2tab"></div>
+                                                    <div id="uploadcustomtab">Select .py file containing your custom feature definitions \
+    (note: file will not be used until tested. Click the test button to test your script): \
+    <br><br><div id='script_file_input_div'><input id='custom_feat_script_file' name='custom_feat_script_file' type='file'></div><br>\
+    <input type='hidden' value='no' id='custom_script_tested' name='custom_script_tested'>\
+    <div><input type='button' id='custom_feats_file_submit_button' name='custom_feats_file_submit_button' onclick='test_custom_feature_script();' value='Click to test'></div>\
+    <div id='file_upload_message_div'></div></div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="large-12 columns">
@@ -259,7 +273,6 @@
                                                 <div class="row">
                                                     <div class="large-1 columns">
                                                         <div class="switch small">
-                                                            
                                                             <input id="model_use_default_params_checkbox" type="checkbox" checked>
                                                             <label for="model_use_default_params_checkbox">
                                                                 <span class="switch-on">Yes</span>
@@ -441,7 +454,6 @@
             <li><a href='#featureset2tab'>Feature set 2</a></li> \
             <li><a href='#uploadcustomtab'>Upload custom feature definitions</a></li> \
         </ul> \
-        <div id='featureset1tab'> \
         </div> \
         <div id='featureset2tab'> \
         </div> \
@@ -451,8 +463,14 @@
     $('#feature_selection_dialog').html(feature_selection_html_str);
     var featureset1_html_str = "<a href='#' onclick='select_deselect_all_feats1();'>Click here to select/deselect all</a><br><br>";
     {% for FEAT in FEATURES_AVAILABLE[0] %}
-        featureset1_html_str += "<input type='checkbox' class='feat1_checkbox' id='features_selected' name='features_selected' value='{{ FEAT }}' checked>{{ FEAT }}<br>"
+        featureset1_html_str += "<input id='features_selected' type='checkbox' name='features_selected' value='{{ FEAT }}' checked> \
+                                    {{ FEAT }}<br> \
+                                    <label for='features_selected'> \
+                                        <span class='switch-on'>Yes</span> \
+                                        <span class='switch-off'>No</span> \
+                                    </label>"
     {% endfor %}
+
     $('#featureset1tab').html(featureset1_html_str);
     var featureset2_html_str = "<a href='#' onclick='select_deselect_all_feats2();'>Click here to select/deselect all</a><br><br>";
     {% for FEAT in FEATURES_AVAILABLE[1] %}
