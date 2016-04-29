@@ -1721,7 +1721,6 @@ function init_dialogs(){
 
 
 function select_deselect_all_feats1(){
-    console.log("called");
     if ($(".feat1_checkbox").length == $(".feat1_checkbox:checked").length){
         $(".feat1_checkbox").prop("checked",false);
     }else{

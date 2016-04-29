@@ -4,7 +4,6 @@ $(document).ready(function() {
     $('#tab-links a').on('click', function(e)  {
         e.preventDefault();
         var currentAttrValue = $(this).attr('href');
-        // console.log(currentAttrValue);
         // Show/Hide Tabs
         var allTabs = ['#uploadTab','#featureTab','#buildModelTab']
         for (var i = 0; i < allTabs.length; i++){
@@ -28,16 +27,14 @@ $(document).ready(function() {
         for (var i = 0; i < allTabs.length; i++){
 
             if (allTabs[i] === currentAttrValue){
-                console.log(currentAttrValue);
                 $(allTabs[i]).show();
             }
             else{
-                console.log("inactive" + allTabs[i]);
                 $(allTabs[i]).hide();   
             }
         }
         // Change/remove current tab to active
-        // $(this).parent('li').addClass('active').siblings().removeClass('active');
+        $(this).parent('li').addClass('active').siblings().removeClass('active');
     });
     $("label[for='headerfile'], label[for='zipfile']").click(function(e){
     	e.preventDefault();
@@ -51,16 +48,16 @@ $(document).ready(function() {
     	var span = $(this).attr("data-selected");
     	$(span).text('   '+filename);
     });
-    // $('#myModal').foundation();
+    // $('#feature_selection_dialog').foundation();
     // $('#feature_modal_open').on('click', function() {
-    //         // var popup = new Foundation.Reveal($('#myModal'));
+    //         // var popup = new Foundation.Reveal($('#feature_selection_dialog'));
     //         // popup.open();
     //         console.log("hello");
-    //     $('#myModal').reveal();
+    //     $('#feature_selection_dialog').reveal();
     // });
     // $(document).foundation();
     $('a.custom-close-reveal-modal').click(function(e){
         e.preventDefault();
-      $('#myModal').foundation('reveal', 'close');
+      $('#feature_selection_dialog').foundation('reveal', 'close');
     });
 });

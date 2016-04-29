@@ -168,10 +168,7 @@
                                             <div class="row">
                                                 <div class="large-12 columns">
                                                     <label>Select dataset
-                                                        <select id="upload_project_name_select" name="upload_project_name_select">
-                                                            {% for PROJ_NAME in CURRENT_PROJECTS %}
-                                                                <option value="{{ PROJ_NAME }} ">{{ PROJ_NAME }}</option>
-                                                            {% endfor %}
+                                                        <select id="featureset_dataset_select" name="featureset_dataset_select">
                                                         </select>
                                                     </label>
                                                 </div>
@@ -179,52 +176,65 @@
                                             <div class="row">
                                                 <div class="large-12 columns">
                                                     <label>Feature Set Title
-                                                        <input type="text" placeholder="Enter a title for your dataset" name='dataset_name' id='dataset_name'/>
+                                                        <input type="text" placeholder="Enter a title for your feature set" name='featureset_name' id='featureset_name'/>
                                                     </label>
                                                 </div>
                                             </div>
                                             <div>
-                                                <a href="#" data-reveal-id="myModal">Click Me For A Modal</a>
-                                                <div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-                                                    <h2 id="modalTitle">Awesome. I have it.</h2>
-                                                    <p class="lead">Your couch.  It is mine.</p>
+                                                <div id="feature_selection_dialog" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+                                                    <h3 id="modalTitle">Feature Selection</h3>
                                                     <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-                                                    <div id="feature-tab-links">
-                                                        <div class="row">
-                                                            <div class="large-4 columns"> <a href="#featureset1tab">Featureset1</a></div>
-                                                            <div class="large-4 columns"> <a href="#featureset2tab">Featureset2</a></div>
-                                                            <div class="large-4 columns"> <a href="#uploadcustomtab">CustomFeatures</a></div>
+                                                    <div class="tabs">
+                                                        <ul class="tab-links" id="feature-tab-links">
+                                                            <li class="active"><a href="#featureset1tab">Feature set 1</a></li>
+                                                            <li><a href="#featureset2tab">Feature set 2</a></li>
+                                                            <li> <a href="#uploadcustomtab">Upload custom feature definitions</a></li>
+                                                        </ul>
+                                                        <div class="tab-content">
+                                                            <div id="featureset1tab">
+                                                                <a href='#' onclick='select_deselect_all_feats1();'>Click here to select/deselect all</a><br><br>
+                                                                {% for FEAT in FEATURES_AVAILABLE[0] %}
+                                                                    <input id='features_selected' class='feat1_checkbox' type='checkbox' name='features_selected' value='{{ FEAT }}' checked>
+                                                                    {{ FEAT }}<br>
+                                                                {% endfor %}
+                                                            </div>
+                                                            <div id="featureset2tab" style="display:none">
+                                                                <a href='#' onclick='select_deselect_all_feats2();'>Click here to select/deselect all</a><br><br>
+                                                                {% for FEAT in FEATURES_AVAILABLE[1] %}
+                                                                    <input type='checkbox' class='feat2_checkbox' id='features_selected' name='features_selected' value='{{ FEAT }}' checked>&nbsp;{{ FEAT }}<br>
+                                                                {% endfor %}
+                                                            </div>
+                                                            <div id="uploadcustomtab" style="display:none">
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div id="featureset1tab">
-                                                        <a href='#' onclick='select_deselect_all_feats1();'>Click here to select/deselect all</a><br><br>
-                                                        {% for FEAT in FEATURES_AVAILABLE[0] %}
-                                                            <input id='features_selected' class='feat1_checkbox' type='checkbox' name='features_selected' value='{{ FEAT }}' checked>
-                                                            {{ FEAT }}<br>
-                                                        {% endfor %}
-                                                    </div>
-                                                    <div id="featureset2tab" style="display:none">
-                                                        <a href='#' onclick='select_deselect_all_feats2();'>Click here to select/deselect all</a><br><br>
-                                                        {% for FEAT in FEATURES_AVAILABLE[1] %}
-                                                            <input type='checkbox' class='feat2_checkbox' id='features_selected' name='features_selected' value='{{ FEAT }}' checked>{{ FEAT }}<br>
-                                                        {% endfor %}
-                                                    </div>
-                                                    <div id="uploadcustomtab" style="display:none">Select .py file containing your custom feature definitions
-                                                        (note: file will not be used until tested. Click the test button to test your script):
-                                                        <br><br><div id='script_file_input_div'><input id='custom_feat_script_file' name='custom_feat_script_file' type='file'></div><br>
-                                                        <input type='hidden' value='no' id='custom_script_tested' name='custom_script_tested'>
-                                                        <div><input type='button' id='custom_feats_file_submit_button' name='custom_feats_file_submit_button' onclick='test_custom_feature_script();' value='Click to test'></div>
-                                                        <div id='file_upload_message_div'></div>
-                                                    </div>
+                                                    <a href="#" class="button primary upload-button right" style="margin-top: 10px" onclick="$('#feature_selection_dialog').foundation('reveal', 'close');">
+                                                        <i class="fa fa-check"></i>
+                                                    Done</a>
                                                 </div>
                                                 <div class="row">
                                                     <div class="large-12 columns">
                                                         <label>
-                                                            <a href="#" class="button primary upload-button" id='feature_selection_link'>
+                                                            <a href="#" class="button primary upload-button" data-reveal-id="feature_selection_dialog">
                                                                 <i class="fa fa-upload"></i>
                                                             Feature Selection Dialog</a>
                                                         </label>
                                                     </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="medium-1 columns">
+                                                        <div class="switch small">
+                                                            <input id="email_user" type="checkbox" value="True" name="email_user" checked>
+                                                            <label for="email_user">
+                                                                <span class="switch-on">Yes</span>
+                                                                <span class="switch-off">No</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="medium-7 columns" style="font-size: 0.875rem; padding-top: 4px">
+                                                         Receive an email notification upon featurization completion?
+                                                    </div>
+                                                    <div class="medium-4 columns"></div>
                                                 </div>
                                                 <h4 class="form-heading">Featurize uploaded time series data</h4>
                                                 <div class="row">
@@ -283,7 +293,7 @@
                                             </div>
                                             <!-- <input type="checkbox" name="model_use_default_params_checkbox" id="model_use_default_params_checkbox" checked>Use default model parameters</input> -->
                                             <div class="row">
-                                                <div class="large-1 columns">
+                                                <div class="medium-1 columns">
                                                     <div class="switch small">
                                                         <input id="model_use_default_params_checkbox" type="checkbox" checked>
                                                         <label for="model_use_default_params_checkbox">
@@ -292,9 +302,10 @@
                                                         </label>
                                                     </div>
                                                 </div>
-                                                <div class="large-11 columns" style="font-size: 0.875rem; padding-top: 4px">
+                                                <div class="medium-5 columns" style="font-size: 0.875rem; padding-top: 4px">
                                                     Use default model parameters?
                                                 </div>
+                                                <div class="medium-6 columns"></div>
                                             </div>
                                             <!--                                         ASK STEFAN
                                             {% for model in MODEL_DESCRIPTIONS %}
@@ -487,14 +498,14 @@
     //     featureset2_html_str += "<input type='checkbox' class='feat2_checkbox' id='features_selected' name='features_selected' value='{{ FEAT }}' checked>{{ FEAT }}<br>"
 // {% endfor %}
 // $('#featureset2tab').html(featureset2_html_str);
-// var customfeats_html_str = "Select .py file containing your custom feature definitions \
-// (note: file will not be used until tested. Click the test button to test your script): \
-// <br><br><div id='script_file_input_div'><input id='custom_feat_script_file' name='custom_feat_script_file' type='file'></div><br>\
-// <input type='hidden' value='no' id='custom_script_tested' name='custom_script_tested'>\
-// <div><input type='button' id='custom_feats_file_submit_button' name='custom_feats_file_submit_button' onclick='test_custom_feature_script();' value='Click to test'></div>\
-// <div id='file_upload_message_div'></div>"
-// $('#uploadcustomtab').html(customfeats_html_str);
-// $('#feature_selection_dialog').parent().appendTo($("#featurizeForm"));
+var customfeats_html_str = "Select .py file containing your custom feature definitions \
+(note: file will not be used until tested. Click the test button to test your script): \
+<br><br><div id='script_file_input_div'><input id='custom_feat_script_file' name='custom_feat_script_file' type='file'></div><br>\
+<input type='hidden' value='no' id='custom_script_tested' name='custom_script_tested'>\
+<div><input type='button' id='custom_feats_file_submit_button' name='custom_feats_file_submit_button' onclick='test_custom_feature_script();' value='Click to test'></div>\
+<div id='file_upload_message_div'></div>"
+$('#uploadcustomtab').html(customfeats_html_str);
+$('#feature_selection_dialog').parent().appendTo($("#featurizeForm"));
 // $("#feature_selection_dialog_tabs").tabs();
 $('#header_file_upload #tarball_file_upload').click(function(){
 $('input[type=file]').trigger('click');
