@@ -32,6 +32,7 @@ $(document).ready(function() {
                 $(allTabs[i]).show();
             }
             else{
+                console.log("inactive" + allTabs[i]);
                 $(allTabs[i]).hide();   
             }
         }
